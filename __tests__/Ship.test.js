@@ -2,19 +2,19 @@ const Ship = require('../src/Ship.js');
 const Port = require('../src/Port.js');
 const Itinerary = require('../src/Itinerary.js');
 
+let ship;
+let dover;
+let calais;
+let itinerary;
+
+beforeEach(() => {
+    dover = new Port('Dover');
+    calais = new Port('Calais');
+    itinerary = new Itinerary([dover, calais]);
+    ship = new Ship(itinerary);
+});
+
 describe('Ship', () => {
-    let ship;
-    let dover;
-    let calais;
-    let itinerary;
-
-    beforeEach(() => {
-        dover = new Port('Dover');
-        calais = new Port('Calais');
-        itinerary = new Itinerary([dover, calais]);
-        ship = new Ship(itinerary);
-    });
-
     test('can be instantiated', () => {
         expect(ship).toBeInstanceOf(Object);
     });
@@ -44,18 +44,6 @@ describe('Ship', () => {
 });
 
 describe('dock', () => {
-    let ship;
-    let dover;
-    let calais;
-    let itinerary;
-
-    beforeEach(() => {
-        dover = new Port('Dover');
-        calais = new Port('Calais');
-        itinerary = new Itinerary([dover, calais]);
-        ship = new Ship(itinerary);
-    });
-    
     test('can dock at a different port', () => {
         ship.setSail();
         ship.dock();
