@@ -8,8 +8,7 @@ describe('Itinerary', () => {
 
     test('it can have ports', () => {
         const dover = new Port('Dover');
-        const calais = new Port('Calais');
-
+        const calais = new Port('Calais');1
         const itinerary = new Itinerary([dover, calais]);
 
         expect(itinerary.ports).toEqual([dover, calais]);
